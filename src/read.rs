@@ -41,7 +41,7 @@ pub enum CompressionMethod {
 
 /// Metadata for a file or directory in the archive,
 /// retrieved from its central directory
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FileMetadata<'a> {
     /// Uncompressed size of the file in bytes
     pub size: usize,
