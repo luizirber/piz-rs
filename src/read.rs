@@ -326,6 +326,10 @@ impl<'a> ZipArchive<'a> {
             io::Cursor::new(&file_slice[0..metadata.compressed_size]),
         )
     }
+
+    pub fn as_tree(&'a self) -> ZipResult<DirectoryContents<'a>> {
+        as_tree(self.entries())
+    }
 }
 
 /// Returns a boxed read trait for a compressed file,
